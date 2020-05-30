@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <p>理解弹性布局:</p>
+            <p>请说出div:left和right的宽度?</p>
+        </div>
+        <div class="right">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax">MDN文档</a>
+            <p>计算：</p>
+            <div>
+                子元素的 flex-shrink 的值分别为 2，1<br>
+                negative free space:500+400-600=300 <br>
+                总权重为 2 * 500+ 1 * 400 = 1400<br>
+                两个元素分别收缩：<br>
+                300 * 2(flex-shrink) * 500(width) / 1400= 214.28<br>
+                300 * 1(flex-shrink) * 400(width) / 1400= 85.72<br>
+                三个元素的最终宽度分别为：<br>
+                500 - 214.28 = 285.72<br>
+                400 - 85.72 = 314.28<br>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        width: 600px;
+        height: 500px;
+        display: flex;
+      }
+      .left {
+        /* 
+        1.flex-gorw 项目的放到比例默认值为0
+        2.flex-shrink 项目的缩小比例，默认值为1
+        3.flex-basis 项目在分配剩余空间前，占据的主轴空间大小
+        */
+        flex: 1 2 500px;
+        background: red;
+        color: white;
+      }
+      .right {
+        flex: 8 1 400px;
+        background: rgba(12, 232, 32, 0.3);
+        color: white;
+      }
+    </style>
+</body>
+</html>
