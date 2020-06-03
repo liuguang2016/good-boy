@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>promise每隔一秒打印一次</h2>
+    <p>首次打印</p>
+    <div>
+        //一秒后打印 1 4 9 <br>
+        //原因分析：<br>
+        forEach的实现是用while来一次执行所有回调的<br>
+    </div>
+  </body>
+  <script>
+    const list = [1, 2, 3];
+    const square = (num) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(num * num);
+        }, 1000);
+      });
+    };
+
+    // function test() {
+    //   list.forEach(async (x) => {
+    //     const res = await square(x);
+    //     console.log(res);
+    //   });
+    // }
+
+    //改写
+    async function test() {
+      for (const x of list) {
+          const res = await square(x);
+          console.log(res);
+      }
+    }
+    test();
+  </script>
+</html>

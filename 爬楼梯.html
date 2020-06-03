@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>爬楼梯</h2>
+    <div>
+      <p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
+      <p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢</p>
+    </div>
+  </body>
+  <script>
+    //分析
+    // 用逆向思维反过来看，如果你已在第n个台阶上
+    // 那么你只有两个方法到这一步
+    // 1.你以前在第n-1个台阶，迈一步到了
+    // 2.你以前在第n-2个台阶，迈两步到了
+    // 二者相加，d[n] = d[n - 1] + d[n - 2];
+    // 接下来再对一些特殊的情况做处理
+    // 分别是n为0，1，2这三种情况
+    // 接下来就是该考虑用计算机的计算能力来实现来
+    // 我们要知道到达n-1和n-2的台阶的方法，并记录。能想的的最优数据结构就是数组，用下标表示台阶，用值则是到达该台阶的方法数
+    var total = function(n){
+        let d = [];
+        d[0] = 0;
+        d[1] = 1;
+        d[2] = 2;
+        for(let i = 3;i<=n;i++){
+            d[i] = d[i-1]+d[i-2];
+        }
+        return d[n];
+    }
+    console.log(total(10));
+  </script>
+</html>
