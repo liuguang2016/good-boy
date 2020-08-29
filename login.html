@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>优云直播</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      height: 100%;
+    }
+    body {
+      height: 100%;
+    }
+    .wrapper {
+      display: table;
+      width: 100%;
+      height: 100%;
+    }
+    .box {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+    .cell {
+      width: 180px;
+      height: 215px;
+      padding: 10px;
+      margin: 0 auto;
+    }
+    .box h2 {
+      color: #4891f7;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+    form input {
+      margin-bottom: 15px;
+      padding: 5px 0 5px 8px;
+      outline: none;
+      border: 1px solid gray;
+      border-radius: 5px;
+      width: 170px;
+    }
+    .btn {
+      background-color: #2f73e3;
+      color: white;
+      outline: none;
+      border: none;
+      width: 100%;
+      padding: 6px 0;
+      border-radius: 18px;
+      cursor: pointer;
+    }
+    .des {
+      position: absolute;
+      bottom: 10px;
+      color: gray;
+      font-size: 14px;
+      width: 100%;
+      text-align: center;
+    }
+    .logo{
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+    .close_btn{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 10px;
+    }
+
+  </style>
+  <body>
+    <img class="logo" src="https://ccn-doc.oss-cn-beijing.aliyuncs.com/ccn-website/PC/mdt/common/logo.png" alt="">
+    <div class="close_btn">X</div>
+    <div class="wrapper">
+      <div class="box">
+        <div class="cell">
+          <h2>优云直播</h2>
+          <form action="demo_form.asp">
+            <input type="text" name="fname" placeholder="用户名" />
+            <input type="text" name="lname" placeholder="会议ID" />
+            <input type="text" name="lname" placeholder="会议口令" />
+          </form>
+          <button class="btn" id="joinmeeting">加入会议</button>
+        </div>
+      </div>
+    </div>
+    <div class="des">
+      <span>版本号：5.1（54596.0509）</span>
+    </div>
+  </body>
+</html>

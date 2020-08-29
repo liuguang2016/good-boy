@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数缓存</title>
+</head>
+<body>
+    <h2>函数缓存</h2>
+</body>
+<script>
+    function memoize(fn){
+        const cache = {};
+        return function(){
+            const key = JSON.stringify(arguments);
+            let value = cache[key];
+            console.log(value);
+            if(!value){
+                // 放在一个数组中，方便应对 undefined，null 等异常情况
+                value = [fn.apply(null,arguments)];
+            }
+            return value[0];
+        }
+    }
+    const fibonacci = memoize(n=>n<2?n:fibonacci(n-1)+fibonacci(n-2));
+    console.log(fibonacci(4));
+</script>
+</html>

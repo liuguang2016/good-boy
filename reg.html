@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则匹配</title>
+</head>
+<body>
+    <h3>获取rid</h3>
+</body>
+<script>
+    let url = "https://live.bilibili.com/22303299?session_id=EA494026-DD84-4E66-B17D-FF90157F4E27&visit_id=5enwgl31psw0";
+    let rid = url.match(/(?<=\/)\d{2,}/g);
+    console.log(rid);
+</script>
+</html>
