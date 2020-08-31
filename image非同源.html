@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="download" href="#" download>点击下载</a>
+</body>
+<script>
+    function fn() {
+      let url = "https://tse3-mm.cn.bing.net/th/id/OIP.r6dU6cnxstZ19nyXH2G9KwHaHa?pid=Api&rs=1";
+      download(url, "nihao.jpg");
+    }
+
+    fn();
+
+    //下载图片
+    function download(url, name){
+      name = name || url;
+      // fetch抓取图片数据
+      fetch(url)
+        .then((response) => {
+          if (response.status == 200){
+            return response.blob();
+          }
+        })
+        .then((blob) => {
+          // 获取到blob对象
+          downloadFile(name,blob);
+        })
+        .catch((error) => {
+          console.log("failed. cause:", error);
+        });
+    }
+
+    function downloadFile(fileName, blob) {
+      const anchor = document.getElementById("download");
+      // 创建指向blob对象地址
+      const src = URL.createObjectURL(blob);
+      anchor.download = fileName;
+      anchor.href = src;
+    }
+</script>
+</html>

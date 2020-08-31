@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>函数式编程</title>
-</head>
-<body>
-    
-</body>
-<script>
+  </head>
+  <body>
+    <h2>函数</h2>
+  </body>
+  <script>
 
-    
-    // 转换成 
+    // 转换成
     // [{name: 'John Reese'}, {name: 'Harold Finch'}, {name: 'Sameen Shaw'}]
 
-    let arr=['john-reese', 'harold-finch', 'sameen-shaw'];
+    let arr = ["john-reese", "harold-finch", "sameen-shaw"];
     //字符串转对象
-    function genObject(key,value){
-        let obj = {};
-        obj[key]=value;
-        return obj;
+    function genObject(key, value) {
+      let obj = {};
+      obj[key] = value;
+      return obj;
     }
     //首字母大写
-    function capitalize(word){
-        return word[0].toUpperCase()+word.slice(1).toLowerCase();
-    };
-    let newArr=arr.map(item=>{
-        let value = item.split('-').map(item=>capitalize(item)).join(' ');
-        return genObject('name',value);
+    function capitalize(word) {
+      return word[0].toUpperCase() + word.slice(1).toLowerCase();
+    }
+    let newArr = arr.map((item) => {
+      let value = item
+        .split("-")
+        .map((item) => capitalize(item))
+        .join(" ");
+      return genObject("name", value);
     });
     console.log(newArr);
-</script>
+  </script>
 </html>
