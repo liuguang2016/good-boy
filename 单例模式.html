@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>单例模式</title>
+  </head>
+  <body>
+    <p>1.确保一个类只有一个实例</p>
+    <p>2.提供全局访问的api</p>
+  </body>
+  <script>
+    //简单的单例模式
+    class Singleton {
+      constructor(name) {
+        this.name = name;
+      }
+      // 静态方法
+      static getInstance(name) {
+        if (!this.instance) {
+          this.instance = new Singleton(name);
+        }
+        return this.instance;
+      }
+    }
+    let a = Singleton.getInstance("a1");
+    let b = Singleton.getInstance("b2");
+    console.log(a,b);
+    console.log(a == b);
+
+    //代理创建单例
+    let getSingle = function(fn){
+      let result;
+      return function (){
+        if(!result){
+          result = fn.apply(this,arguments);
+        }
+        return result;
+      }
+    }
+    let createObj = (name)=>{
+      this.name = name;
+    }
+
+    let objSingle = getSingle(createObj("张大千"));
+    console.log(objSingle().name);
+  </script>
+</html>

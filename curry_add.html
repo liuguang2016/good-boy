@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柯里化版本add函数</title>
+</head>
+<body>
+    <div>你好柯里化</div>
+</body>
+<script>
+    //原始版本
+    let add = function(x,y){
+        return x+y;
+    }
+
+    //柯里化版本
+    let curryAdd = function(x){
+        return (y)=>x+y;
+    }
+
+    const increment = curryAdd(1);
+    console.log(increment(2));
+</script>
+</html>

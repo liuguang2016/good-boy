@@ -11,10 +11,9 @@
 <script>
     function memoize(fn){
         const cache = {};
-        return function(){
+        return ()=>{
             const key = JSON.stringify(arguments);
             let value = cache[key];
-            console.log(value);
             if(!value){
                 // 放在一个数组中，方便应对 undefined，null 等异常情况
                 value = [fn.apply(null,arguments)];
