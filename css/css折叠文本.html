@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css折叠文本</title>
+</head>
+<style>
+  .wrap{
+    display: flex;
+    margin: 50px auto;
+    width: 800px;
+    overflow: hidden;
+    border-radius: 8px;
+    padding: 15px ;
+    box-shadow: 20px 20px 60px #bebebe,
+      -20px -20px 60px #ffffff;
+  }
+  .text {
+    overflow: hidden;
+    /* display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical; */
+    line-height: 1.5;
+    position: relative;
+  }
+  .text::before{
+    content: '';
+    float: right;
+    width: 0;
+    /* height: calc(100% - 22px); */
+    height: 100%;
+    margin-bottom: -22px;
+  }
+  .text::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: white;
+  }
+  .exp:checked+.text::after {
+    visibility: hidden;
+  }
+  .btn{
+    float: right;
+    clear: both;
+    border: none;
+    background: blue;
+    border-radius: 2px;
+    color: white;
+    height: 22px;
+    margin-left: 20px;
+    position: relative;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    cursor: pointer;
+  }
+
+  .btn::before{
+    content: '...';
+    position: absolute;
+    left: -5px;
+    color: #333;
+    transform: translateX(-100%);
+  }
+
+  .btn::after{
+    content:'展开'
+  }
+  .exp{
+    display: none;
+  }
+  .exp:checked+.text .btn::after{
+    content:'收起'
+  }
+
+  .exp:checked+.text .btn::before {
+    visibility: hidden; /*在展开状态下隐藏省略号*/
+  }
+
+  .exp:checked+.text{
+    max-height: none;
+  }
+
+  [line-clamp="1"] {
+    max-height: 1.5em;
+  }
+  [line-clamp="2"] {
+    max-height: 3em;
+  }
+  [line-clamp="3"] {
+    max-height: 4.5em;
+  }
+
+</style>
+<body>
+  <div class="wrap">
+    <input type="checkbox" id="exp1" class="exp">
+    <div class="text" line-clamp="3">
+      <label class="btn" for="exp1"></label>
+      浮动元素是如何定位的正如我们前面提到的那样，当一个元素浮动之后，它会被移出正常的文档流，然后向左或者向右平移，一直平移直到碰到了所处的容器的边框，或者碰到另外一个浮动的元素。原因其实很容易想到，就是高度 100% 失效的问题，关于这类问题网上的分析有很多，通常的解决方式是给父级指定一个高度，但是这里的高度是动态变化的，而且还有展开状态，高度更是不可预知，所以设置高度不可取。
+    </div>
+  </div>
+</body>
+</html>
