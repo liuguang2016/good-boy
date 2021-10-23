@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tangram</title>
+</head>
+<body>
+  <canvas id="canvas" style="border:1px solid gray;display:block;margin: 0 auto;"></canvas>
+</body>
+<script>
+  const tangram=[
+          {p:[{x:0,y:0},{x:800,y:0},{x:400,y:400}],color:"#caff67"},
+          {p:[{x:0,y:0},{x:400,y:400},{x:0,y:800}],color:"#67becf"},
+          {p:[{x:800,y:0},{x:800,y:400},{x:600,y:600},{x:600,y:200}],color:"#ef3d61"},
+          {p:[{x:600,y:200},{x:600,y:600},{x:400,y:400}],color:"#f9f51a"},
+          {p:[{x:400,y:400},{x:600,y:600},{x:400,y:800},{x:200,y:600}],color:"#a594c0"},
+          {p:[{x:200,y:600},{x:400,y:800},{x:0,y:800}],color:"#fa8ecc"},
+          {p:[{x:800,y:400},{x:800,y:800},{x:400,y:800}],color:"#f6ca29"}
+        ];
+  
+  const draw = ({data,cxt})=>{
+    const pieceDraw = ({p,color})=>{
+      cxt.beginPath();
+      p.forEach(({x,y},idx)=>{
+        if(idx===0){
+          cxt.moveTo(x,y);
+        }else{
+          cxt.lineTo(x,y);
+        }
+      })
+      cxt.closePath();
+      cxt.fillStyle=color;
+      cxt.fill();
+    }
+  
+    data.forEach(piece => {
+      pieceDraw(piece);
+    });
+  }
+
+  window.onload=()=>{
+    const canvas = document.querySelector("#canvas");
+    canvas.width=800;
+    canvas.height=800;
+
+    const context = canvas.getContext("2d");
+    draw({data:tangram,cxt:context});
+  }
+</script>
+</html>

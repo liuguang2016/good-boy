@@ -71,6 +71,7 @@
   .btn::after{
     content:'展开'
   }
+  
   .exp{
     display: none;
   }
@@ -100,7 +101,7 @@
 <body>
   <div class="wrap">
     <input type="checkbox" id="exp1" class="exp">
-    <div class="text" line-clamp="3">
+    <div class="text" line-clamp="2">
       <label class="btn" for="exp1"></label>
       浮动元素是如何定位的正如我们前面提到的那样，当一个元素浮动之后，它会被移出正常的文档流，然后向左或者向右平移，一直平移直到碰到了所处的容器的边框，或者碰到另外一个浮动的元素。原因其实很容易想到，就是高度 100% 失效的问题，关于这类问题网上的分析有很多，通常的解决方式是给父级指定一个高度，但是这里的高度是动态变化的，而且还有展开状态，高度更是不可预知，所以设置高度不可取。
     </div>

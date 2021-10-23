@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+.HolyGrail {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header,
+footer {
+  flex: 1;
+  background-color: thistle;
+}
+
+.HolyGrail-body {
+  display: flex;
+  flex: 1;
+  background-color: teal;
+}
+
+.HolyGrail-content {
+  flex: 1;
+}
+
+.HolyGrail-nav, .HolyGrail-ads {
+  /* 两个边栏的宽度设为12em */
+  flex: 0 0 12em;
+}
+
+.HolyGrail-nav {
+  /* 导航放到最左边 */
+  order: -1;
+}
+</style>
+
+<body class="HolyGrail">
+  <header>...</header>
+  <div class="HolyGrail-body">
+    <main class="HolyGrail-content">
+      <p>The holy grail is a web page layout which has multiple, equal height columns that are defined with style sheets. It is commonly desired and implemented, but for many years, the various ways in which it could be implemented with available technologies all had drawbacks.[1] Because of this, finding an optimal implementation was likened to searching for the elusive Holy Grail.
+
+        The limitations of CSS and HTML, the desirability of semantically meaningful pages that rank well in search engines, and the deficiencies of various browsers combined historically to create a situation in which there was no way to create this type of layout that would be considered totally correct. As the underlying technologies did not provide a proper solution, web designers found various ways to work around the limitations. Common workarounds included changes in page structure, the addition of graphics, scripting, and the creative use of CSS. These methods were imperfect, inconvenient, and considered by some to be abuse of the web standards and their intent.
+        
+        More recent web standards have provided much more complete and robust solutions for implementing this layout. In particular, the CSS Flexible Box Layout and CSS Grid Layout modules have both provided full solutions.[2][3]</p>
+    </main>
+    <nav class="HolyGrail-nav">...</nav>
+    <aside class="HolyGrail-ads">...</aside>
+  </div>
+  <footer>...</footer>
+</body>
+</html>
