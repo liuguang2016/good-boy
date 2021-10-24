@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>circle</title>
+</head>
+<body>
+  <canvas id="canvas" style="border: 1px solid gray;display: block;margin: 10px auto;"></canvas>
+</body>
+<script>
+  const draw = () => {
+    var canvas = document.getElementById('canvas');
+    if (canvas.getContext){
+      var ctx = canvas.getContext('2d');
+
+      for(var i = 0; i < 4; i++){
+        for(var j = 0; j < 3; j++){
+          ctx.beginPath();
+          var x = 25 + j * 50; // x 坐标值
+          var y = 25 + i * 50; // y 坐标值
+          var radius = 20; // 圆弧半径
+          var startAngle = 0; // 开始点
+          var endAngle = Math.PI + (Math.PI * j) / 2; // 结束点
+          var anticlockwise = i % 2 == 0 ? false : true; // 顺时针或逆时针
+
+          ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+          if (i>1){
+            ctx.fill();
+          } else {
+            ctx.stroke();
+          }
+        }
+      }
+    }
+  }
+
+  window.onload=()=>{
+    const canvas = document.querySelector("#canvas");
+    canvas.width=700;
+    canvas.height=700;
+    const context = canvas.getContext("2d");
+
+    context.arc(200,200,100,0,1.5*Math.PI);
+    context.stroke();
+
+    draw();
+  }
+</script>
+</html>
