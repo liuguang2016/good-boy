@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>physics-ball</title>
+</head>
+<body>
+  <canvas id="canvas" style="border: 1px solid gray;display: block;margin: 10px auto;"></canvas>
+</body>
+<script>
+  const ball = {x:512,y:100,r:20,g:2,vx:-4,vy:0,color:"blue"}
+  window.onload=()=>{
+    const canvas = document.querySelector("#canvas");
+    canvas.width=1020;
+    canvas.height=768;
+    const context = canvas.getContext("2d");
+    
+    setInterval(()=>{
+      render({cxt:context});
+      animate({ball,cxt:context});
+    },50)
+
+    function render({cxt}){
+      cxt.clearRect(0,0,cxt.canvas.width,cxt.canvas.height);
+      const {x,y,r,color} = ball;
+      cxt.beginPath();
+      cxt.arc(x,y,r,0,2*Math.PI);
+      cxt.closePath();
+      cxt.fillStyle=color;
+      cxt.fill();
+    }
+
+    const animate = ({ball,cxt})=>{
+      ball.x+=ball.vx;
+      ball.y+=ball.vy;
+      ball.vy+=ball.g;
+      if(ball.y>= cxt.canvas.height-ball.r){
+        ball.y = cxt.canvas.height-ball.r;
+        ball.vy = -ball.vy*0.6;
+      }
+    }
+  }
+</script>
+</html>
