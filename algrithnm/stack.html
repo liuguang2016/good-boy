@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>栈的实现</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // 封装栈类
+  function Stack(...params){
+    // 栈中的属性
+    this.items =[...params];
+    
+    Stack.prototype.push = function(element) {
+      this.items.push(element)
+    }
+
+    Stack.prototype.pop = () => {
+      return this.items.pop()
+    }
+
+    Stack.prototype.unshift = (...elements) =>{
+      this.items.unshift(...elements);
+    }
+
+    Stack.prototype.shift = () =>{
+      return this.items.shift();
+    }
+
+    // 3.peek():查看一下栈顶元素
+    Stack.prototype.peek = () => {
+      return this.items[this.items.length - 1]
+    }
+
+    // 4.isEmpty():判断栈是否为空
+    Stack.prototype.isEmpty = () => {
+      return this.items.length == 0 
+    }
+
+    Stack.prototype.size = () => {
+      return this.items.length
+    }
+
+    Stack.prototype.toString = () => {
+      //希望输出的形式：20 10 12 8 7
+      let resultString = ''
+      for (let i of this.items){
+        resultString += i + ' '
+      }
+      return resultString;
+    }
+  }
+
+  const result = new Stack(1,2,3);
+  console.log("--------------",result);
+</script>
+</html>

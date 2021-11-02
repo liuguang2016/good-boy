@@ -19,6 +19,7 @@ window.onload = () => {
       const li = document.createElement('li');
       li.innerText = JSON.stringify(item);
       fragment.appendChild(li);
+      li.innerHTML
     });
     $(".container").insertBefore(fragment, $(".sentinels"));
   }

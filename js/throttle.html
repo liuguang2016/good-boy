@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // 节流：每隔一段时间，只执行一次函数
+  window.onload=()=>{
+    const throttle = (fn,delay)=>{
+      let timer = 0;
+      return (...params)=>{
+        if(timer){
+          return;
+        }
+        setTimeout(()=>{
+          fn(...params);
+          clearTimeout(timer);
+        },delay)
+      }
+    }
+
+    function testThrottle(e, content) {
+      console.log(e, content);
+    }
+    var testThrottleFn = throttle(testThrottle, 1000); // 节流函数
+    document.onmousemove = function (e) {
+      testThrottleFn(e, 'throttle'); // 给节流函数传参
+    }
+  }
+</script>
+</html>

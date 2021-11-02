@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防抖</title>
+</head>
+<body>
+  
+</body>
+<script>
+  //事件触发n后秒后执行，如果n秒内再次触发则重新计时
+  window.onload=()=>{
+    const debounce = (fn,delay)=>{
+      let timer = 0;
+      return (...params)=>{
+        if(timer){
+          clearTimeout(time);
+        }
+        time = setTimeout(()=>{
+          fn(...params);
+        },delay);
+      }
+    }
+
+    // test
+    function testDebounce(e, content) {
+      console.log(e, content);
+    }
+    const testDebounceFn = debounce(testDebounce, 1000); // 防抖函数
+
+    document.onmousemove = (e) => {
+      testDebounceFn(e, 'debounce');
+    }
+  }
+</script>
+</html>
