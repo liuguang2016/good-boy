@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手动实现call</title>
+</head>
+<body>
+  
+</body>
+<script>
+  window.onload=()=>{
+    Function.prototype.customCall = function(context,...props){
+      context.temp = this;
+      context.temp(...props);
+      delete context.temp;
+    }
+
+    function Product(name, price) {
+      this.name = name;
+      this.price = price;
+    }
+
+    function Food(name, price) {
+      Product.customCall(this, name, price);
+      this.category = 'food';
+    }
+
+    console.log(new Food('cheese', 5).name);
+
+  }
+</script>
+</html>
