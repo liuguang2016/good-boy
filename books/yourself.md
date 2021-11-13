@@ -87,3 +87,6 @@
 - apply,call改变上下文后立即执行，bind改变后返回函数
 - apply的第二个参数是数组，call的第二个参数是参数列表
 
+## webpack打包拆分
+- optimization.splitChunks
+
