@@ -1,0 +1,1 @@
+const array:[number,number,string] = [1, 2, "ming"];
