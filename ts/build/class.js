@@ -77,3 +77,4 @@ var liJie = new JieJie(171);
 liJie.say();
 liJie.sayLove();
 console.log(Person.weight, liJie.age, liJie.write);
+//# sourceMappingURL=class.js.map
