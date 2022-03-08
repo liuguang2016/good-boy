@@ -1,6 +1,14 @@
-class Person {
-  constructor(public name: string) {
+/**
+ * 抽象类
+ * 抽象方法
+ */
+abstract class Animal {
+  abstract breathe():void;
+}
 
+class Person extends Animal {
+  constructor(public name: string) {
+    super();
   }
   private _age: number = 0;
   protected sex: string = "男";
@@ -11,6 +19,9 @@ class Person {
   }
   set age(age: number) {
     this._age = age + 3;
+  }
+  breathe() {
+    console.log("人用鼻子呼吸")
   }
 }
 
@@ -31,10 +42,10 @@ class JieJie extends Lady {
   }
 
   sayLove = () => {
-    return 'I love you' + super.context;
+    return 'I love you' + this.context;
   }
   sayHello = () => {
-    return super.context + ',你好';
+    return this.context + ',你好';
   }
 }
 
