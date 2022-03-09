@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jquery": "^3.5.14",
     "parcel": "^2.3.2"
   }
 }

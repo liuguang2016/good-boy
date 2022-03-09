@@ -1,9 +1,11 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@types/jquery': ^3.5.14
   parcel: ^2.3.2
 
 devDependencies:
+  '@types/jquery': 3.5.14
   parcel: 2.3.2
 
 packages:
@@ -697,8 +699,18 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
+  /@types/jquery/3.5.14:
+    resolution: {integrity: sha512-X1gtMRMbziVQkErhTQmSe2jFwwENA/Zr+PprCkF63vFq+Yt5PZ4AlKqgmeNlwgn7dhsXEK888eIW2520EpC+xg==}
+    dependencies:
+      '@types/sizzle': 2.3.3
+    dev: true
+
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
+    dev: true
+
+  /@types/sizzle/2.3.3:
+    resolution: {integrity: sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==}
     dev: true
 
   /abortcontroller-polyfill/1.7.3:
