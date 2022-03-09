@@ -1,13 +1,16 @@
 
 import Header from "./components/Header";
-
-class Home{
+class Home {
   constructor() {
     new Header();
   }
 }
 
 console.log("-------------");
+
+$(function () {
+  alert("hello");
+});
 
 new Home();
 export default Home;
