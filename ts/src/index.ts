@@ -7,4 +7,7 @@ class Home{
   }
 }
 
+console.log("-------------");
+
+new Home();
 export default Home;
