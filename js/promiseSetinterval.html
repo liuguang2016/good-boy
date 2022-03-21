@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义动画</title>
+  </head>
+  <style>
+    #animation {
+      width: 100px;
+      height: 100px;
+      background-color: aquamarine;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <div id="animation"></div>
+  </body>
+  <script>
+    const promiseInterval = (delay = 1000, callback) => {
+      return new Promise((resolve) => {
+        let time = setInterval(() => {
+          callback(time, resolve);
+        }, delay);
+      });
+    };
+
+    promiseInterval(100, (time, resolve) => {
+      const el = document.querySelector("#animation");
+      let left = parseInt(window.getComputedStyle(el).left);
+      el.style.left = `${left + 10}px`;
+      if (left >= 200) {
+        clearInterval(time);
+        resolve(el);
+      }
+    })
+      .then((el) => {
+        return promiseInterval(100, (time, resolve) => {
+          let width = parseInt(window.getComputedStyle(el).width);
+          el.style.width = `${width - 10}px`;
+          if (width <= 20) {
+            clearInterval(time);
+            resolve(el);
+          }
+        });
+      })
+      .then((el) => {
+        el.style.backgroundColor = "red";
+      });
+  </script>
+</html>
