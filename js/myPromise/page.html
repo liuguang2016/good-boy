@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>promise</title>
+</head>
+<script src="./index-class.js"></script>
+<script>
+  // const promise = new Promise((resolve,reject)=>{
+  //   reject('解决11');
+  // });
+  const My = new MyPromise((resolve,reject)=>{
+    reject('未解决');
+  })
+
+  My.then((res)=>{
+    console.log(res);
+    return "为了二次成功"
+  },(reason)=>{
+    console.log(reason);
+    return "为了二次失败"
+  }).then((res)=>{
+    console.log(res);
+  },(reason)=>{
+    console.log(reason);
+  });
+  console.log("00000000000")
+</script>
+<body>
+  
+</body>
+</html>
